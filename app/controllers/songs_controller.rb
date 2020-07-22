@@ -1,3 +1,5 @@
+require 'pry'
+
 class SongsController < ApplicationController
     before_action :find_song, only: [:edit, :update, :destroy, :show]
 

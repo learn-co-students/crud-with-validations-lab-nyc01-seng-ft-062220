@@ -8,5 +8,5 @@
 
 <h3>Genre: <%= @song.genre %></h3><br>
 
-<%= link_to("Remove", resource_url, method: :delete, class: "delete_button") %>
+<%= link_to("Remove", @song_path, method: :delete, class: "delete_button") %>
 
