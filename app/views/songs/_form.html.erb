@@ -1,0 +1,31 @@
+<% if flash[:user_error] %>
+     <div id="error_explanation">
+        <h2>
+            Cannot save this song due to <%= pluralize(flash[:user_error].count, "error") %>
+        </h2>   
+        <% flash[:user_error].each do |msg|  %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @song do |f|%>
+
+<label>Song Title:</label>
+<%= f.text_field :title %><br><br>
+
+<label>Artist Name:</label>
+<%= f.text_field :artist_name %><br><br>
+
+<label>Genre:</label>
+<%= f.collection_select :genre, Song.all.map {|t| t.genre}.uniq, :to_s , :to_s %><br><br>
+
+<label>Song Released?:</label>
+<%= f.select :released, [["Yes", true], ["No", false]] %><br><br>
+
+<label>Release year:</label>
+<%= f.number_field :release_year, min: 1900, max: 2019%><br><br>
+
+<%= f.submit "Save Song" %>
+<% end %>

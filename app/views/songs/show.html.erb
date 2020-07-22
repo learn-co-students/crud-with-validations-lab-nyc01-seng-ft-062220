@@ -1,0 +1,9 @@
+<h1><%= @song.title %></h1>
+<b>Artist: <%= @song.artist_name %><br><br>
+Genre: <%= @song.genre %><br><br>
+Released Year: <%= @song.released ? @song.release_year : "Not Released" %><br><br>
+</b>
+<br><br>
+<%= link_to "Delete Song", song_path(@song), data: {:confirm => "Are you sure?"}, :method => :delete %>
+<%= link_to "Edit Song", edit_song_path, :method => "get" %><br><br>
+<%= button_to "Song List", songs_path, :method => "get" %>
