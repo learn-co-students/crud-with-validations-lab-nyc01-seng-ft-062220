@@ -1,0 +1,12 @@
+<h3>Title: <%= @song.title %></h3><br>
+
+<% if @song.released %>
+    <h3>Release Year: <%= @song.release_year %></h3><br>
+<% end %>
+
+<h3>Artist Name: <%= @song.artist_name %></h3><br>
+
+<h3>Genre: <%= @song.genre %></h3><br>
+
+<%= link_to("Remove", @song_path, method: :delete, class: "delete_button") %>
+
